@@ -8,7 +8,9 @@ public class CanvasVR : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        #if UNITY_STANDALONE
+        #if UNITY_EDITOR
+        gameObject.SetActive(true);
+        #else
         if (Utils.GetSystemHeadsetType() == 0)
         {
             gameObject.SetActive(false);
@@ -16,9 +18,4 @@ public class CanvasVR : MonoBehaviour
         #endif
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    
-    }
 }

@@ -6,7 +6,6 @@ public class World : MonoBehaviour
 {
     public Material skyboxLight;
     public Material skyboxNight;
-    public GameObject plane;
 
     private bool contrast = false;
 
@@ -15,10 +14,10 @@ public class World : MonoBehaviour
         contrast = value;
         if(contrast){
             RenderSettings.skybox = skyboxNight;
-            plane.SetActive(false);
+            gameObject.SetActive(false);
         }else{
             RenderSettings.skybox = skyboxLight;
-            plane.SetActive(true);
+            gameObject.SetActive(true);
         }
     }
 }
