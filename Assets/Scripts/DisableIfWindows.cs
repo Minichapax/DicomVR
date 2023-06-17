@@ -6,7 +6,7 @@ using Unity.XR.Oculus;
 public class DisableIfWindows : MonoBehaviour
 {
     // Start is called before the first frame update
-    public Camera camera;
+    public new Camera camera;
     public GameObject[] elements;
     public bool disableInEditorAnyways;
     void Start()
@@ -15,7 +15,7 @@ public class DisableIfWindows : MonoBehaviour
         if(disableInEditorAnyways)
             disableVR();
     #else
-        if (Utils.GetSystemHeadsetType() == 0)  //Si no hay headset conectado
+        if (Utils.GetSystemHeadsetType() == SystemHeadset.None)  //Si no hay headset conectado
             disableVR();
         
     #endif

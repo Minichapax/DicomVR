@@ -48,7 +48,7 @@ public class Volume : MonoBehaviour
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                selectedPath = openFileDialog.FileName;
+                selectedpath = openFileDialog.FileName;
             }
         }
 #endif
@@ -102,7 +102,7 @@ public class Volume : MonoBehaviour
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                selectedPath = openFileDialog.FileName;
+                selectedpath = openFileDialog.FileName;
             }
         }
 #endif
