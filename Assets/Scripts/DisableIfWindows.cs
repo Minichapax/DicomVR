@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Unity.XR.Oculus;
+using UnityEngine.XR;
 
 public class DisableIfWindows : MonoBehaviour
 {
@@ -12,13 +12,13 @@ public class DisableIfWindows : MonoBehaviour
     public bool disableInEditorAnyways;
     void Start()
     {
+        List<XRDisplaySubsystem> displaySubsystems = new List<XRDisplaySubsystem>();
+        SubsystemManager.GetSubsystems(displaySubsystems);
+        if(displaySubsystems.Count==0) disableVR();
+
     #if UNITY_EDITOR
         if(disableInEditorAnyways)
-            disableVR();
-    #else
-        if (Utils.GetSystemHeadsetType() == SystemHeadset.None)  //Si no hay headset conectado
-            disableVR();
-        
+            disableVR();  
     #endif
     }
 
@@ -36,5 +36,6 @@ public class DisableIfWindows : MonoBehaviour
         gameObject.SetActive(false);
 
     }
+
 
 }

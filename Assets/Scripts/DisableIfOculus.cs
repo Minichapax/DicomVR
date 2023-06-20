@@ -11,12 +11,13 @@ public class DisableIfOculus : MonoBehaviour
 
     void Start()
     {
-        #if UNITY_EDITOR
+    #if UNITY_ANDROID //TODO 
+        disablePC();
+    #endif
+    #if UNITY_EDITOR
         if(disableInEditorAnyways)
             disablePC();
-        #elif UNITY_ANDROID 
-            disablePC();
-        #endif
+    #endif
     }
     void disablePC(){
         //Desactivo los elementos que no quiera de PC
