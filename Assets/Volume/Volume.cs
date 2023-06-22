@@ -6,7 +6,7 @@ using UnityEngine.IO;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
-#if UNITY_STANDALONE_WIN
+#if UNITY_STANDALONE_WIN && !UNITY_EDITOR
 using System.Windows.Forms;
 #endif
 public class Volume : MonoBehaviour
@@ -41,7 +41,7 @@ public class Volume : MonoBehaviour
 #if UNITY_EDITOR
         selectedpath = EditorUtility.OpenFilePanelWithFilters("Selecciona un archivo png", "", extensionsPng);
         changeTexture(selectedpath);
-#elif UNITY_STANDALONE_WIN
+#elif UNITY_STANDALONE_WIN && !UNITY_EDITOR
         using (OpenFileDialog openFileDialog = new OpenFileDialog())
         {
             openFileDialog.Filter = "Archivos PNG (*.png)|*.png";
@@ -96,7 +96,7 @@ public class Volume : MonoBehaviour
 #if UNITY_EDITOR
         selectedpath = EditorUtility.OpenFilePanelWithFilters("Selecciona un archivo DICOM", "", extensionsDicom);
         changeVolume(selectedpath);
-#elif UNITY_STANDALONE
+#elif UNITY_STANDALONE_WIN && !UNITY_EDITOR
         using (OpenFileDialog openFileDialog = new OpenFileDialog())
         {
             openFileDialog.Filter = "Archivos DICOM (*.dcm)|*.dcm";
